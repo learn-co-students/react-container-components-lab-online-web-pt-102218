@@ -49,3 +49,7 @@ yarn.lock
 
 # DS_Store
 .DS_Store
+
+# Secrets
+secret**
+config/secret**
