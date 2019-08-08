@@ -32,7 +32,7 @@ describe('<LatestMovieReviewsContainer />', () => {
 
   it('should have a state property "reviews"', () => {
     expect(LatestMovieReviewsContainer.prototype, 'Component is not yet defined.').to.exist;
-    expect(wrapper.state()).to.have.key('reviews');
+    expect(wrapper.state()).to.include.key('reviews');
   });
 
   it('should have top-level element with class "latest-movie-reviews"', () => {
@@ -47,7 +47,7 @@ describe('<LatestMovieReviewsContainer />', () => {
   it('should render reviews after reviews state updated', () => {
     wrapper = !LatestMovieReviewsContainer.prototype ?
       mount(<Noop />) : mount(<LatestMovieReviewsContainer />);
-    wrapper.setState({ reviews: testReviews });
+    wrapper.setState({ reviews: testReviews, isLoaded: true});
     wrapper.update();
     expect(wrapper.find('.review').length).to.equal(testReviews.length);
   });
