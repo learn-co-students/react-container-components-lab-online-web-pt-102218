@@ -17,14 +17,11 @@ class LatestMovieReviewsContainer extends Component {
     componentDidMount(){
         fetch(URL)
         .then(function(response) {
-            if (response.status >= 400) {
-                throw new Error("Bad response from server");
-            }
             return response.json();
         })
         .then((myJson) => {
             this.setState({
-                reviews: myJson.results.slice(0, 3)
+                reviews: myJson.results
             })
         });
     }
